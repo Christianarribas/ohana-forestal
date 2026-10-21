@@ -1,0 +1,470 @@
+/* ================================================================
+   OHANA FORESTAL - Hoja de estilos
+   ----------------------------------------------------------------
+   ÍNDICE
+   01. Colores y tipografía (variables: copiar a Gutenberg > Estilos)
+   02. Base y utilidades (contenedor, botones, etiquetas, sierras)
+   03. Cabecera fija y menú
+   04. Portada (hero)
+   05. Puntos fuertes
+   06. Servicios (tarjetas con tablón de madera)
+   07. Nosotros
+   08. Trabajos (galería de marcadores)
+   09. Franja de llamada a la acción
+   10. Contacto y formulario
+   11. Pie de página
+   12. Animaciones de aparición al hacer scroll
+   13. Móvil (menú y ajustes)
+   ================================================================ */
+
+/* ---------- 01. COLORES Y TIPOGRAFÍA ----------
+   Paleta sacada del logo. En WordPress se copian en
+   Apariencia > Editor > Estilos > Colores. */
+:root {
+  --verde-noche: #012813;   /* verde más oscuro del aro */
+  --verde-bosque: #03482c;  /* verde de los pinos */
+  --verde-hoja:   #1b6b45;  /* verde medio para detalles */
+  --naranja:      #fe6706;  /* naranja de la cinta y la motosierra */
+  --naranja-osc:  #d45400;
+  --madera:       #e09148;  /* tablón */
+  --marron:       #341705;  /* letra "Ohana" */
+  --cielo:        #88cffd;  /* cielo del logo */
+  --crema:        #f8f1de;  /* fondos claros */
+  --blanco:       #ffffff;
+  --gris-texto:   #4a443c;
+
+  --fuente-titulos: 'Zilla Slab', Georgia, serif;
+  --fuente-texto:   'Inter', system-ui, sans-serif;
+
+  --radio: 14px;
+  --sombra: 0 10px 24px rgba(1, 40, 19, 0.14);
+}
+
+/* ---------- 02. BASE Y UTILIDADES ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fuente-texto);
+  color: var(--gris-texto);
+  background: var(--crema);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 { font-family: var(--fuente-titulos); line-height: 1.15; }
+
+.contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.seccion { padding: 90px 0; position: relative; }
+
+.seccion-titulo {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--marron);
+  margin-bottom: 12px;
+}
+
+.seccion-intro { max-width: 620px; margin-bottom: 48px; }
+
+/* Etiqueta pequeña tipo pegatina encima de los títulos */
+.etiqueta {
+  display: inline-block;
+  background: var(--naranja);
+  color: var(--blanco);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  transform: rotate(-2deg);
+  margin-bottom: 18px;
+  box-shadow: 3px 3px 0 var(--verde-bosque);
+}
+
+.etiqueta-clara { box-shadow: 3px 3px 0 var(--crema); }
+
+/* Botones */
+.boton {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.boton:hover { transform: translateY(-2px); }
+
+.boton-naranja {
+  background: var(--naranja);
+  color: var(--blanco);
+  box-shadow: 0 6px 0 var(--naranja-osc);
+}
+.boton-naranja:hover { box-shadow: 0 8px 0 var(--naranja-osc); }
+.boton-naranja:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--naranja-osc); }
+
+.boton-borde { border-color: var(--crema); color: var(--crema); }
+.boton-borde:hover { background: rgba(248, 241, 222, 0.12); }
+
+.boton-verde {
+  background: var(--verde-bosque);
+  color: var(--blanco);
+  box-shadow: 0 6px 0 var(--verde-noche);
+}
+.boton-verde:hover { box-shadow: 0 8px 0 var(--verde-noche); }
+
+.boton-pequeno { padding: 9px 20px; font-size: 0.9rem; }
+.boton-grande  { padding: 17px 38px; font-size: 1.1rem; }
+
+/* Bordes de sierra (dientes) entre secciones: el guiño a la motosierra */
+.sierra-abajo, .sierra-arriba {
+  position: absolute;
+  left: 0; right: 0;
+  height: 22px;
+  background-size: 44px 22px;
+  background-repeat: repeat-x;
+}
+.sierra-abajo { bottom: -1px; }
+.sierra-arriba { top: -1px; transform: scaleY(-1); }
+
+.sierra-crema {
+  background-image: linear-gradient(135deg, var(--crema) 25%, transparent 25%),
+                    linear-gradient(225deg, var(--crema) 25%, transparent 25%);
+  background-position: 0 0, 22px 0;
+}
+.sierra-blanca {
+  background-image: linear-gradient(135deg, var(--blanco) 25%, transparent 25%),
+                    linear-gradient(225deg, var(--blanco) 25%, transparent 25%);
+  background-position: 0 0, 22px 0;
+}
+
+/* ---------- 03. CABECERA FIJA ---------- */
+.cabecera {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  background: var(--crema);
+  border-bottom: 4px solid var(--verde-bosque);
+  box-shadow: 0 2px 10px rgba(1, 40, 19, 0.08);
+}
+
+.cabecera-interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.marca { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.marca-logo { width: 52px; }
+.marca-texto {
+  font-family: var(--fuente-titulos);
+  font-size: 1.4rem;
+  color: var(--marron);
+}
+.marca-texto strong { color: var(--naranja); }
+
+.menu { display: flex; align-items: center; gap: 26px; }
+.menu-enlace {
+  color: var(--verde-bosque);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 2px;
+}
+.menu-enlace:hover, .menu-enlace.activo { border-color: var(--naranja); }
+
+/* Botón hamburguesa (solo visible en móvil, sección 13) */
+.boton-menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 8px;
+}
+.boton-menu span {
+  width: 26px; height: 3px;
+  background: var(--verde-bosque);
+  border-radius: 2px;
+}
+
+/* ---------- 04. PORTADA ---------- */
+.portada {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(247, 243, 196, 0.18), transparent 32%),
+    linear-gradient(160deg, var(--verde-bosque) 0%, var(--verde-noche) 78%);
+  color: var(--crema);
+  text-align: center;
+  padding: 140px 0 100px;
+}
+
+.portada-interior { display: flex; flex-direction: column; align-items: center; }
+
+.portada-titulo {
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  font-weight: 700;
+  color: var(--blanco);
+  max-width: 16ch;
+}
+
+/* Subrayado tipo cadena de motosierra (línea discontinua naranja) */
+.portada-subrayado {
+  width: min(320px, 60%);
+  margin: 18px 0 22px;
+  border-bottom: 6px dashed var(--naranja);
+  border-radius: 3px;
+}
+
+.portada-texto {
+  font-size: 1.15rem;
+  max-width: 52ch;
+  margin-bottom: 36px;
+}
+
+.portada-botones { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+/* ---------- 05. PUNTOS FUERTES ---------- */
+.puntos-fuertes { background: var(--crema); padding: 70px 0 40px; }
+
+.puntos-interior {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.punto { text-align: center; padding: 10px; }
+.punto-icono { font-size: 2.2rem; display: block; margin-bottom: 10px; }
+.punto-titulo { color: var(--verde-bosque); font-size: 1.2rem; margin-bottom: 6px; }
+.punto p { font-size: 0.95rem; }
+
+/* ---------- 06. SERVICIOS ---------- */
+.servicios { background: var(--crema); }
+
+.servicios-rejilla {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Tarjeta con tablón de madera arriba y borde verde: cartel de obra */
+.tarjeta {
+  background: var(--blanco);
+  border: 3px solid var(--verde-bosque);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.tarjeta:hover {
+  transform: translateY(-6px) rotate(-0.5deg);
+  box-shadow: 0 16px 30px rgba(254, 103, 6, 0.22);
+}
+
+/* Tablón: vetas hechas con degradados, sin imágenes */
+.tarjeta-madera {
+  height: 14px;
+  background:
+    repeating-linear-gradient(0deg, rgba(52, 23, 5, 0.18) 0 2px, transparent 2px 6px),
+    linear-gradient(90deg, #c97f3a, var(--madera) 40%, #c97f3a);
+}
+
+.tarjeta-cuerpo { padding: 26px 24px 30px; }
+.tarjeta-icono { font-size: 2rem; display: block; margin-bottom: 12px; }
+.tarjeta-titulo { color: var(--marron); font-size: 1.35rem; margin-bottom: 8px; }
+.tarjeta-cuerpo p { font-size: 0.97rem; }
+
+/* ---------- 07. NOSOTROS ---------- */
+.nosotros {
+  background: var(--verde-bosque);
+  color: var(--crema);
+  padding: 120px 0;
+}
+
+.nosotros .seccion-titulo { color: var(--blanco); }
+
+.nosotros-interior {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.nosotros-imagen img {
+  max-width: 320px;
+  margin: 0 auto;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.35));
+  transform: rotate(-3deg);
+  transition: transform 0.2s ease;
+}
+.nosotros-imagen img:hover { transform: rotate(0deg) scale(1.03); }
+
+.nosotros-texto p { margin-bottom: 20px; max-width: 52ch; }
+
+.lista-valores { list-style: none; margin-bottom: 30px; }
+.lista-valores li {
+  padding: 8px 0 8px 34px;
+  position: relative;
+  border-bottom: 1px dashed rgba(248, 241, 222, 0.35);
+}
+.lista-valores li::before {
+  content: "🪓";
+  position: absolute;
+  left: 0;
+}
+
+/* ---------- 08. TRABAJOS ---------- */
+.trabajos { background: var(--blanco); }
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Marcadores de foto: se sustituyen por fotos reales */
+.foto-marcador {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    repeating-linear-gradient(-45deg, rgba(3, 72, 44, 0.05) 0 14px, transparent 14px 28px),
+    var(--crema);
+  border: 3px dashed var(--verde-hoja);
+  border-radius: var(--radio);
+  color: var(--verde-bosque);
+  font-weight: 600;
+}
+
+/* ---------- 09. LLAMADA A LA ACCIÓN ---------- */
+.llamada {
+  position: relative;
+  background: linear-gradient(170deg, var(--cielo), #b9e2ff);
+  padding: 120px 0 90px;
+  text-align: center;
+}
+
+.llamada-titulo { font-size: clamp(2rem, 5vw, 3.2rem); color: var(--verde-noche); margin-bottom: 14px; }
+.llamada-texto { max-width: 46ch; margin: 0 auto 32px; font-size: 1.1rem; color: var(--verde-bosque); }
+
+/* ---------- 10. CONTACTO ---------- */
+.contacto { background: var(--blanco); }
+
+.contacto-interior {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.lista-contacto { list-style: none; margin-top: 22px; }
+.lista-contacto li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  font-weight: 600;
+  color: var(--verde-bosque);
+  border-bottom: 1px dashed var(--madera);
+}
+
+.formulario {
+  background: var(--crema);
+  border: 3px solid var(--verde-bosque);
+  border-radius: var(--radio);
+  padding: 32px;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.campo { display: flex; flex-direction: column; gap: 6px; }
+.campo-nombre { font-weight: 700; color: var(--marron); font-size: 0.95rem; }
+
+.campo input, .campo textarea {
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 2px solid var(--madera);
+  border-radius: 10px;
+  background: var(--blanco);
+}
+.campo input:focus, .campo textarea:focus {
+  outline: none;
+  border-color: var(--naranja);
+  box-shadow: 0 0 0 3px rgba(254, 103, 6, 0.18);
+}
+
+.formulario-aviso { color: var(--verde-bosque); font-weight: 700; }
+
+/* ---------- 11. PIE ---------- */
+.pie {
+  background: var(--marron);
+  color: var(--crema);
+  padding: 44px 0;
+  text-align: center;
+}
+.pie-interior { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.pie-logo { width: 90px; }
+.pie-texto { font-size: 0.9rem; opacity: 0.85; }
+
+/* ---------- 12. ANIMACIONES DE APARICIÓN ---------- */
+.aparece { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.aparece.visible { opacity: 1; transform: none; }
+
+/* ---------- 13. MÓVIL ---------- */
+@media (max-width: 900px) {
+  .puntos-interior { grid-template-columns: repeat(2, 1fr); }
+  .servicios-rejilla { grid-template-columns: repeat(2, 1fr); }
+  .nosotros-interior, .contacto-interior { grid-template-columns: 1fr; }
+  .galeria { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 620px) {
+  .boton-menu { display: flex; }
+
+  .menu {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--crema);
+    border-bottom: 4px solid var(--verde-bosque);
+    padding: 10px 24px 18px;
+    display: none;
+  }
+  .menu.abierto { display: flex; }
+  .menu-enlace { padding: 12px 0; }
+  .menu .boton { margin-top: 10px; text-align: center; }
+
+  .servicios-rejilla, .galeria { grid-template-columns: 1fr; }
+  .seccion { padding: 64px 0; }
+  .nosotros, .llamada { padding: 90px 0; }
+}
+
+/* ---------- 14. ICONOS SVG (sustituyen a los emojis) ---------- */
+.punto-icono svg, .tarjeta-icono svg { width: 42px; height: 42px; }
+.punto-icono { color: var(--naranja); }
+.tarjeta-icono { color: var(--verde-hoja); }
+.lista-valores li::before { content: "✓"; color: var(--naranja); font-weight: 800; }
+.icono-contacto { width: 20px; height: 20px; flex-shrink: 0; color: var(--naranja); }

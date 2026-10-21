@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ============================================================
+    OHANA FORESTAL - Web de una página
+    ------------------------------------------------------------
+    Pensada para pasarla a WordPress con Gutenberg:
+    cada <section> lleva un comentario "GUTENBERG:" que indica
+    con qué bloque se monta en el editor. No hay frameworks ni
+    librerías: todo lo que ves son bloques normales (cubiertas,
+    columnas, grupos, botones, galería) con los colores del logo.
+    Los colores están como variables en style.css (sección 1),
+    listos para copiar en Apariencia > Editor > Estilos.
+    ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ohana Forestal · Trabajos forestales</title>
+  <meta name="description" content="Ohana Forestal: tala, poda, desbroce y limpieza de montes. Pide presupuesto sin compromiso.">
+  <link rel="icon" type="image/png" href="imagenes/logo-ohana.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Tipografías: Zilla Slab (titulares, parecida a la letra del logo) e Inter (texto) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="inicio">
+
+  <!-- ============================================================
+    CABECERA FIJA
+    GUTENBERG: se monta en la plantilla del tema (cabecera),
+    con un bloque "Fila": logo + menú de navegación + botón.
+    ============================================================ -->
+  <header class="cabecera" id="cabecera">
+    <div class="contenedor cabecera-interior">
+      <a class="marca" href="#inicio">
+        <img class="marca-logo" src="imagenes/logo-ohana.png" alt="Logo de Ohana Forestal">
+        <span class="marca-texto">Ohana <strong>Forestal</strong></span>
+      </a>
+      <nav class="menu" id="menu-principal" aria-label="Menú principal">
+        <a class="menu-enlace" href="#servicios">Servicios</a>
+        <a class="menu-enlace" href="#nosotros">Nosotros</a>
+        <a class="menu-enlace" href="#trabajos">Trabajos</a>
+        <a class="menu-enlace" href="#contacto">Contacto</a>
+        <!-- MARCADOR: cambia 600000000 por el número real de WhatsApp -->
+        <a class="boton boton-pequeno boton-naranja" href="https://wa.me/34600000000">WhatsApp</a>
+      </nav>
+      <button class="boton-menu" id="boton-menu" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+      1. PORTADA (HERO)
+      GUTENBERG: bloque "Cubierta" a pantalla completa, fondo verde
+      oscuro, con un bloque "Encabezado", "Párrafo" y "Botones".
+      ============================================================ -->
+    <section class="portada">
+      <div class="contenedor portada-interior">
+        <p class="etiqueta">Trabajos forestales</p>
+        <h1 class="portada-titulo">Tu monte, bien cuidado</h1>
+        <p class="portada-subrayado" aria-hidden="true"></p>
+        <p class="portada-texto">Tala, poda, desbroce y limpieza de fincas.
+        Trabajo serio, limpio y con presupuesto claro desde el primer día.</p>
+        <div class="portada-botones">
+          <!-- MARCADOR: cambia el número de WhatsApp -->
+          <a class="boton boton-naranja" href="https://wa.me/34600000000">Pide presupuesto</a>
+          <a class="boton boton-borde" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+      <div class="sierra-abajo sierra-crema" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============================================================
+      2. FRANJA DE PUNTOS FUERTES
+      GUTENBERG: bloque "Columnas" (4 columnas) con icono + texto.
+      ============================================================ -->
+    <section class="puntos-fuertes">
+      <div class="contenedor puntos-interior">
+        <div class="punto">
+          <span class="punto-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.4 2.4 4.8-5.2"/></svg></span>
+          <h2 class="punto-titulo">Trabajo limpio</h2>
+          <p>Dejamos la finca recogida, no un campo de batalla.</p>
+        </div>
+        <div class="punto">
+          <span class="punto-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="12" height="16" rx="2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 11h6M9 15h6"/></svg></span>
+          <h2 class="punto-titulo">Presupuesto claro</h2>
+          <p>Precio cerrado por escrito antes de empezar.</p>
+        </div>
+        <div class="punto">
+          <span class="punto-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l4.5 7h-2.8L17.5 16h-11L10.3 9.5H7.5z"/><path d="M12 16v5.5"/></svg></span>
+          <h2 class="punto-titulo">Conocemos el monte</h2>
+          <p>Consejo honesto sobre qué conviene hacer y cuándo.</p>
+        </div>
+        <div class="punto">
+          <span class="punto-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.2 3.8a5 5 0 0 0-6.4 6.4L3.5 15.5l2 2 5.3-5.3a5 5 0 0 0 6.4-6.4L14.2 8.8l-2-2z"/></svg></span>
+          <h2 class="punto-titulo">Maquinaria propia</h2>
+          <p>Motosierras, desbrozadoras y equipo para cada trabajo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      3. SERVICIOS
+      GUTENBERG: bloque "Grupo" con un "Encabezado" y dentro una
+      "Rejilla" (o "Columnas" de 3) con una tarjeta por servicio.
+      PROPUESTA: ajusta la lista a los servicios reales de la empresa.
+      ============================================================ -->
+    <section class="servicios seccion" id="servicios">
+      <div class="contenedor">
+        <p class="etiqueta">Lo que hacemos</p>
+        <h2 class="seccion-titulo">Servicios</h2>
+        <p class="seccion-intro">Del mantenimiento de una finca pequeña a la limpieza
+        completa de un monte. Cuéntanos qué necesitas y te damos precio.</p>
+
+        <div class="servicios-rejilla">
+          <article class="tarjeta">
+            <div class="tarjeta-madera" aria-hidden="true"></div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l4.5 7h-2.8L17.5 16h-11L10.3 9.5H7.5z"/><path d="M12 16v5.5"/></svg></span>
+              <h3 class="tarjeta-titulo">Tala y poda</h3>
+              <p>Tala controlada de árboles peligrosos o enfermos y poda de formación y mantenimiento.</p>
+            </div>
+          </article>
+          <article class="tarjeta">
+            <div class="tarjeta-madera" aria-hidden="true"></div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19C5 11 10 6 19 5c-1 9-6 14-14 14z"/><path d="M5 19c3-6 7-9.5 11-11.5"/></svg></span>
+              <h3 class="tarjeta-titulo">Desbroce y limpieza</h3>
+              <p>Limpieza de fincas, parcelas y márgenes: maleza, zarzas y monte bajo.</p>
+            </div>
+          </article>
+          <article class="tarjeta">
+            <div class="tarjeta-madera" aria-hidden="true"></div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-2.6-5.4C15 10.6 14.4 12 14.4 12 14.4 8 12.6 5 10 2c.6 3-.9 4.6-2 6C6.7 9.5 5 11.5 5 15a7 7 0 0 0 7 7z"/></svg></span>
+              <h3 class="tarjeta-titulo">Prevención de incendios</h3>
+              <p>Franjas cortafuegos y reducción de combustible para proteger tu propiedad.</p>
+            </div>
+          </article>
+          <article class="tarjeta">
+            <div class="tarjeta-madera" aria-hidden="true"></div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><path d="M12 3.5v2M12 18.5v2M3.5 12h2M18.5 12h2"/></svg></span>
+              <h3 class="tarjeta-titulo">Leña y madera</h3>
+              <p>Aprovechamiento de la madera cortada: apeada, partida y lista para usar.</p>
+            </div>
+          </article>
+          <article class="tarjeta">
+            <div class="tarjeta-madera" aria-hidden="true"></div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19l6.5-11 4 6 2.5-4L21 19z"/><circle cx="9.5" cy="5" r="1.6"/></svg></span>
+              <h3 class="tarjeta-titulo">Trabajos en altura</h3>
+              <p>Poda y desrame en árboles grandes con técnicas de trepa y seguro.</p>
+            </div>
+          </article>
+          <article class="tarjeta">
+            <div class="tarjeta-madera" aria-hidden="true"></div>
+            <div class="tarjeta-cuerpo">
+              <span class="tarjeta-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 15a7.5 7.5 0 0 1 15 0z"/><path d="M2.5 18.5h19"/><path d="M12 7.5v3"/></svg></span>
+              <h3 class="tarjeta-titulo">Pequeños desmontes</h3>
+              <p>Preparación de terrenos para obra, caminos o nuevas plantaciones.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      4. NOSOTROS
+      GUTENBERG: bloque "Medio y texto" (imagen a un lado, texto al
+      otro). La imagen sería el logo o una foto del equipo.
+      ============================================================ -->
+    <section class="nosotros seccion" id="nosotros">
+      <div class="sierra-arriba sierra-crema" aria-hidden="true"></div>
+      <div class="contenedor nosotros-interior">
+        <div class="nosotros-imagen">
+          <img src="imagenes/logo-ohana.png" alt="Ohana Forestal">
+        </div>
+        <div class="nosotros-texto">
+          <p class="etiqueta etiqueta-clara">Quiénes somos</p>
+          <h2 class="seccion-titulo">Ohana significa familia</h2>
+          <p>Somos una empresa forestal de trato cercano. Trabajamos cada finca
+          como si fuera nuestra: con cuidado, con orden y sin letra pequeña.</p>
+          <ul class="lista-valores">
+            <li>Seguridad primero, en cada corte.</li>
+            <li>Respeto por el monte y por tu tiempo.</li>
+            <li>Palabra y precio: lo que firmamos, es.</li>
+          </ul>
+          <a class="boton boton-naranja" href="#contacto">Hablemos de tu finca</a>
+        </div>
+      </div>
+      <div class="sierra-abajo sierra-blanca" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============================================================
+      5. TRABAJOS (GALERÍA)
+      GUTENBERG: bloque "Galería". Los recuadros son marcadores:
+      sustitúyelos por fotos reales de trabajos.
+      ============================================================ -->
+    <section class="trabajos seccion" id="trabajos">
+      <div class="contenedor">
+        <p class="etiqueta">Nuestros trabajos</p>
+        <h2 class="seccion-titulo">Antes y después</h2>
+        <p class="seccion-intro">Aquí irán fotos reales de los trabajos. De momento,
+        los recuadros marcan dónde va cada una.</p>
+        <div class="galeria">
+          <figure class="foto-marcador"><span>📷 Foto 1</span></figure>
+          <figure class="foto-marcador"><span>📷 Foto 2</span></figure>
+          <figure class="foto-marcador"><span>📷 Foto 3</span></figure>
+          <figure class="foto-marcador"><span>📷 Foto 4</span></figure>
+          <figure class="foto-marcador"><span>📷 Foto 5</span></figure>
+          <figure class="foto-marcador"><span>📷 Foto 6</span></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      6. FRANJA DE LLAMADA A LA ACCIÓN
+      GUTENBERG: bloque "Cubierta" estrecha con fondo azul cielo,
+      un "Encabezado" y un "Botón".
+      ============================================================ -->
+    <section class="llamada">
+      <div class="sierra-arriba sierra-blanca" aria-hidden="true"></div>
+      <div class="contenedor llamada-interior">
+        <h2 class="llamada-titulo">¿Tienes un monte que limpiar?</h2>
+        <p class="llamada-texto">Mándanos un WhatsApp con una foto de la finca
+        y te decimos qué haríamos y cuánto costaría.</p>
+        <!-- MARCADOR: cambia el número de WhatsApp -->
+        <a class="boton boton-grande boton-verde" href="https://wa.me/34600000000">Escríbenos por WhatsApp</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      7. CONTACTO
+      GUTENBERG: bloque "Columnas": a la izquierda párrafos con los
+      datos, a la derecha un bloque de formulario (WPForms, Contact
+      Form 7 o el bloque Formulario de Jetpack).
+      MARCADOR: sustituye teléfono, email y localidad por los reales.
+      ============================================================ -->
+    <section class="contacto seccion" id="contacto">
+      <div class="contenedor contacto-interior">
+        <div class="contacto-datos">
+          <p class="etiqueta">Contacto</p>
+          <h2 class="seccion-titulo">Pide tu presupuesto</h2>
+          <p>Cuéntanos qué necesitas y te respondemos lo antes posible.
+          Presupuesto gratis y sin compromiso.</p>
+          <ul class="lista-contacto">
+            <li><svg class="icono-contacto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg> 600 000 000</li>
+            <li><svg class="icono-contacto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> hola@tudominio.es</li>
+            <li><svg class="icono-contacto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Tu localidad y alrededores</li>
+          </ul>
+        </div>
+        <form class="formulario" id="formulario-contacto">
+          <label class="campo">
+            <span class="campo-nombre">Nombre</span>
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+          </label>
+          <label class="campo">
+            <span class="campo-nombre">Teléfono o email</span>
+            <input type="text" name="contacto" placeholder="Cómo te respondemos" required>
+          </label>
+          <label class="campo">
+            <span class="campo-nombre">¿Qué necesitas?</span>
+            <textarea name="mensaje" rows="4" placeholder="Ej.: limpiar una finca de 2000 m² con zarzas y dos pinos"></textarea>
+          </label>
+          <button class="boton boton-naranja boton-grande" type="submit">Enviar</button>
+          <p class="formulario-aviso" id="formulario-aviso" hidden>¡Gracias! Te responderemos pronto.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+    PIE DE PÁGINA
+    GUTENBERG: se monta en la plantilla del tema (pie).
+    ============================================================ -->
+  <footer class="pie">
+    <div class="contenedor pie-interior">
+      <img class="pie-logo" src="imagenes/logo-ohana.png" alt="Logo de Ohana Forestal">
+      <p class="pie-texto">© <span id="ano-actual">2026</span> Ohana Forestal. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
